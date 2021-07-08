@@ -12,7 +12,9 @@ namespace ex2_work
 {
     public partial class Form1 : Form
     {
-        Shape square, circle, clickedShape;
+        Square square;
+        Circle circle;
+        Shape clickedShape;
         private Point MouseDownLocation;
 
 
@@ -22,16 +24,16 @@ namespace ex2_work
             InitializeComponent();
             DoubleBuffered = true;
             
-            square = new Shape(20, 20, 100, Color.Red);
-            circle = new Shape(20, 140, 100, Color.Blue);
+            square = new Square(20, 20, 100, Color.Red);
+            circle = new Circle(20, 140, 100, Color.Blue);
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
 
-            square.drawSquare(g);
-            circle.drawCircle(g);
+            square.draw(g);
+            circle.draw(g);
         }
 
         protected override void OnMouseDown(MouseEventArgs e)

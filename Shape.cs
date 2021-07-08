@@ -8,10 +8,10 @@ using System.Windows.Forms;
 
 namespace ex2_work
 {
-    public class Shape
+    public abstract class Shape
     {
-        Rectangle shape;
-        Pen pen;
+        protected Rectangle shape;
+        protected Pen pen;
 
         public Shape(int x, int y, int a, Color color)
         {
@@ -19,21 +19,7 @@ namespace ex2_work
             pen = new Pen(color);
         }
 
-        public void drawSquare(Graphics g)
-        {
-            g.DrawRectangle(pen, shape);
-
-            SolidBrush fill = new SolidBrush(pen.Color);
-            g.FillRectangle(fill, shape);
-        }
-
-        public void drawCircle(Graphics g)
-        {
-            g.DrawEllipse(pen, shape);
-
-            SolidBrush fill = new SolidBrush(pen.Color);
-            g.FillEllipse(fill, shape);
-        }
+        public abstract void draw(Graphics g);
 
         public void move(MouseEventArgs e, Point MouseDownLocation)
         {
